@@ -1,0 +1,34 @@
+<div id="checkerContainer">
+  <!-- TODO(rachelrosen): merge perspective-status and convai-checker
+       and move a large portion of the convai-checker code to the perspective-api service.
+
+       TODO: We're disabling the "learn more" link for the plugin while we decide what to
+       allow in terms of link customization. Re-enable if we decide we want to allow
+       users to customize the link destination target.
+  -->
+  <convai-perspective-status
+    [fontSize]="fontSize"
+    [indicatorWidth]="13"
+    [indicatorHeight]="13"
+    [gradientColors]="demoSettings.gradientColors"
+    [scoreThresholds]="demoSettings.scoreThresholds"
+    [feedbackText]="demoSettings.feedbackText"
+    [configurationInput]="demoSettings.configuration"
+    [showPercentage]="demoSettings.showPercentage"
+    [showMoreInfoLink]="demoSettings.usePluginEndpoint ? false : demoSettings.showMoreInfoLink"
+    [hasScore]="analyzeCommentResponse !== null"
+    [canAcceptFeedback]="canAcceptFeedback"
+    [feedbackRequestInProgress]="feedbackRequestInProgress"
+    [initializeErrorMessage]="initializeErrorMessage"
+    [analyzeErrorMessage]="analyzeErrorMessage"
+    [userFeedbackPromptText]="demoSettings.userFeedbackPromptText"
+    [hideLoadingIconAfterLoad]="demoSettings.hideLoadingIconAfterLoad"
+    [hideLoadingIconForScoresBelowMinThreshold]="demoSettings.hideLoadingIconForScoresBelowMinThreshold"
+    [alwaysHideLoadingIcon]="demoSettings.alwaysHideLoadingIcon"
+    [loadingIconStyle]="demoSettings.loadingIconStyle"
+    [hasLocalAssets]="!demoSettings.usePluginEndpoint"
+    (commentFeedbackSubmitted)="onCommentFeedbackReceived($event)"
+    (scoreChangeAnimationCompleted)="handleScoreChangeAnimationCompleted()"
+    (modelInfoLinkClicked)="handleModelInfoLinkClicked()">
+  </convai-perspective-status>
+</div>

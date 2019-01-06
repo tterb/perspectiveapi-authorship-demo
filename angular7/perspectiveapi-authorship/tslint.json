@@ -28,7 +28,9 @@
     "interface-over-type-literal": true,
     "label-position": true,
     "max-line-length": [
-      true,
+      // Auto-formatting puts imports on one long line.
+      // was: true,
+      false,
       140
     ],
     "member-access": false,
@@ -57,7 +59,10 @@
     "no-debugger": true,
     "no-duplicate-super": true,
     "no-empty": false,
-    "no-empty-interface": true,
+    // was: "no-empty-interface": true
+    // But: it is useful to have empty interfaces as placeholder/documentation
+    // for the intended type, but you don't yet know much about its details.
+    "no-empty-interface": false,
     "no-eval": true,
     "no-inferrable-types": [
       true,
